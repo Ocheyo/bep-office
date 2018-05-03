@@ -2,8 +2,8 @@ import { db, Sequelize } from '../index';
 
 const Jobs = db.define('job', {
   name: Sequelize.STRING,
-  customer_id: Sequelize.INTEGER,
-  stock_id: Sequelize.INTEGER,
+  customerId: Sequelize.INTEGER,
+  stockId: Sequelize.INTEGER,
   begin: Sequelize.DATE,
   end: Sequelize.DATE,
   cost: Sequelize.FLOAT,
