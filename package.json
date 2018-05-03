@@ -1,0 +1,33 @@
+{
+  "name": "bep-office",
+  "version": "1.0.0",
+  "description": "software to qupte, track jobs and inventory, and customer and vendor directory",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ocheyo/bep-office.git"
+  },
+  "author": "Ocheyo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Ocheyo/bep-office/issues"
+  },
+  "homepage": "https://github.com/Ocheyo/bep-office#readme",
+  "dependencies": {
+    "babel": "^6.23.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-es2015": "^6.24.1",
+    "cors": "^2.8.4",
+    "express-router": "0.0.1",
+    "helmet": "^3.12.0",
+    "nodemon": "^1.17.3",
+    "react": "^16.3.2",
+    "react-router": "^4.2.0",
+    "sequelize": "^4.37.6",
+    "webpack": "^4.6.0"
+  }
+}
