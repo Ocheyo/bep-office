@@ -1,4 +1,5 @@
 import Sequelize from 'sequelize';
+import Promise from 'bluebird';
 
 let db;
 if (process.env.DATABASE_URL) {
@@ -36,5 +37,7 @@ db
   .authenticate()
   .then(() => console.log('bep-office database is connected'))
   .catch(err => console.log('Error: ', err));
+
+Promise.promisifyAll(db);
 
 export { db, Sequelize };
