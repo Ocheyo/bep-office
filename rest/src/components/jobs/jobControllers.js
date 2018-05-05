@@ -1,8 +1,8 @@
-import { addJobQuery, fetchJobQuery, deleteJobQuery, updateJobQuery } from './jobHelpers';
+const jobQueries = require('./jobQueries');
 
-export const addJobController = async (req, res) => {
+module.exports.addJobController = async (req, res) => {
   try {
-    const data = await addJobQuery(req.body);
+    const data = await jobQueries.addJobQuery(req.body);
     console.log("addJobController - sucessfully added data ", JSON.stringify(data.rows[0]));
     return res.status(200).send(data.rows[0]);
   } catch (err) {
@@ -11,9 +11,9 @@ export const addJobController = async (req, res) => {
   }
 };
 
-export const fetchJobController = async (req, res) => {
+module.exports.fetchJobController = async (req, res) => {
   try {
-    const data = await fetchJobQuery(req.params);
+    const data = await jobQueries.fetchJobQuery(req.params);
     console.log("fetchJobController - sucessfully retrieved data ", JSON.stringify(data.rows));
     return res.status(200).send(data.rows);
   } catch (err) {
@@ -22,9 +22,9 @@ export const fetchJobController = async (req, res) => {
   }
 };
 
-export const deleteJobController = async (req, res) => {
+module.exports.deleteJobController = async (req, res) => {
   try {
-    const data = await deleteJobQuery(req.params);
+    const data = await jobQueries.deleteJobQuery(req.params);
     console.log("deleteJobController - sucessfully retrieved data ", JSON.stringify(data.rows[0]));
     return res.status(200).send(data.rows);
   } catch (err) {
@@ -33,9 +33,9 @@ export const deleteJobController = async (req, res) => {
   }
 };
 
-export const updateJobController = async (req, res) => {
+module.exports.updateJobController = async (req, res) => {
   try {
-    const data = await updateJobQuery(req.params);
+    const data = await jobQueries.updateJobQuery(req.params);
     console.log("updateJobController - sucessfully retrieved data ", JSON.stringify(data.rows[0]));
     return res.status(200).send(data.rows);
   } catch (err) {

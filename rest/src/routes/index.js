@@ -1,9 +1,13 @@
-import {Router} from "express";
+const router = require('express').Router();
 
-import /*feature router*/ from "../components/";
+const customerRouter = require('../components/customers/customerRouter');
+const jobRouter = require('../components/jobs/jobRouter');
+const stockRouter = require('../components/stock/stockRouter');
+const vendorRouter = require('../components/vendors/vendorRouter');
 
-const router = Router();
+router.use("/customers", customerRouter);
+router.use("/jobs", jobRouter);
+router.use("/stock", stockRouter);
+router.use("/vendors", vendorRouter);
 
-router.use("/", /*feature router*/);
-
-export default router;
+module.exports = router;

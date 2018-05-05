@@ -1,17 +1,17 @@
-import { db, Sequelize } from '../index';
+const {db, Sequelize} = require('../index');
 
 const Stock = db.define('stock', {
   brand: Sequelize.STRING,
   product: Sequelize.STRING,
-  color: Sequelize.String,
+  color: Sequelize.STRING,
   weight: Sequelize.INTEGER,
   texture: Sequelize.STRING,
   price: Sequelize.FLOAT,
-  vendorId: Sequelize.ARRAY
+  vendorId: Sequelize.INTEGER
 });
 
 Stock.sync()
-  .then(() => console.log('Votes table created'))
+  .then(() => console.log('Stock table created'))
   .catch(err => console.error(err));
 
-export default Stock;
+module.exports = Stock;

@@ -1,6 +1,7 @@
-import App from "./config/express";
+const App = require('./config/express');
+const http = require('http');
 
-import "./config/database";
+const db = require('./config/database');
 // import './config/database/setup';  //-- this resets the databases
 
 

@@ -1,8 +1,8 @@
-import { addStockQuery, fetchStockQuery, deleteStockQuery, updateStockQuery } from './stockHelpers';
+const stockQueries = require('./stockQueries');
 
-export const addStockController = async (req, res) => {
+module.exports.addStockController = async (req, res) => {
   try {
-    const data = await addStockQuery(req.body);
+    const data = await stockQueries.addStockQuery(req.body);
     console.log("addStockController - sucessfully added data ", JSON.stringify(data.rows[0]));
     return res.status(200).send(data.rows[0]);
   } catch (err) {
@@ -11,9 +11,9 @@ export const addStockController = async (req, res) => {
   }
 };
 
-export const fetchStockController = async (req, res) => {
+module.exports.fetchStockController = async (req, res) => {
   try {
-    const data = await fetchStockQuery(req.params);
+    const data = await stockQueries.fetchStockQuery(req.params);
     console.log("fetchStockController - sucessfully retrieved data ", JSON.stringify(data.rows));
     return res.status(200).send(data.rows);
   } catch (err) {
@@ -22,9 +22,9 @@ export const fetchStockController = async (req, res) => {
   }
 };
 
-export const deleteStockController = async (req, res) => {
+module.exports.deleteStockController = async (req, res) => {
   try {
-    const data = await deleteStockQuery(req.params);
+    const data = await stockQueries.deleteStockQuery(req.params);
     console.log("deleteStockController - sucessfully retrieved data ", JSON.stringify(data.rows[0]));
     return res.status(200).send(data.rows);
   } catch (err) {
@@ -33,9 +33,9 @@ export const deleteStockController = async (req, res) => {
   }
 };
 
-export const updateStockController = async (req, res) => {
+module.exports.updateStockController = async (req, res) => {
   try {
-    const data = await updateStockQuery(req.params);
+    const data = await stockQueries.updateStockQuery(req.params);
     console.log("updateStockController - sucessfully retrieved data ", JSON.stringify(data.rows[0]));
     return res.status(200).send(data.rows);
   } catch (err) {

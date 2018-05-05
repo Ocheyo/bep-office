@@ -1,9 +1,9 @@
-import express from "express";
-import parser from "body-parser";
-import cors from "cors";
-import helmet from "helmet";
+const express = require('express');
+const parser = require('body-parser');
+const cors = require('cors');
+const helmet = require('helmet');
 
-import router from "../../routes/index";
+const router = require('../../routes/index');
 
 const middleWare = [
   helmet(),
@@ -20,4 +20,4 @@ const app = express();
 app.use(...middleWare);
 app.use('/api', router);
 
-export default app;
+module.exports = app;

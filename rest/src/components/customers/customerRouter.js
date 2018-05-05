@@ -1,18 +1,18 @@
-import express from "express";
-import { addCustomerController, fetchCustomerController, deleteCustomerController, updateCustomerController } from "./customerControllers";
+const express = require('express');
+const customerControllers = require('./customerControllers');
 
 const router = express.Router();
 
 router.route("/addCustomer")
-  .post(addCustomerController);
+  .post(customerControllers.addCustomerController);
 
 router.route("/fetchCustomer/:customer_id")
-  .get(fetchCustomerController);
+  .get(customerControllers.fetchCustomerController);
 
 router.route("/deleteCustomer/:customer_id")
-  .delete(deleteCustomerController);
+  .delete(customerControllers.deleteCustomerController);
 
 router.route("/updateCustomer/:customer_id")
-  .put(updateCustomerController);
+  .put(customerControllers.updateCustomerController);
 
-export default router;
+module.exports = router;

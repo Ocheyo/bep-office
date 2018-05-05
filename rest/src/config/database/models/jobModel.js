@@ -1,4 +1,4 @@
-import { db, Sequelize } from '../index';
+const {db, Sequelize} = require('../index');
 
 const Jobs = db.define('job', {
   name: Sequelize.STRING,
@@ -9,11 +9,11 @@ const Jobs = db.define('job', {
   cost: Sequelize.FLOAT,
   price: Sequelize.FLOAT,
   type: Sequelize.STRING,
-  extras: Sequelize.ARRAY
+  extras: Sequelize.TEXT
 });
 
-Votes.sync()
-  .then(() => console.log('Votes table created'))
+Jobs.sync()
+  .then(() => console.log('Jobs table created'))
   .catch(err => console.error(err));
 
-export default Votes;
+module.exports = Jobs;

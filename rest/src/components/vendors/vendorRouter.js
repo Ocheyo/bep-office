@@ -1,18 +1,18 @@
-import express from "express";
-import { addVendorController, fetchVendorController, deleteVendorController, updateVendorController } from "./vendorControllers";
+const express = require('express');
+const vendorControllers = require('./vendorControllers');
 
 const router = express.Router();
 
 router.route("/addVendor")
-  .post(addVendorController);
+  .post(vendorControllers.addVendorController);
 
 router.route("/fetchVendor/:vendor_id")
-  .get(fetchVendorController);
+  .get(vendorControllers.fetchVendorController);
 
 router.route("/deleteVendor/:vendor_id")
-  .delete(deleteVendorController);
+  .delete(vendorControllers.deleteVendorController);
 
 router.route("/updateVendor/:vendor_id")
-  .put(updateVendorController);
+  .put(vendorControllers.updateVendorController);
 
-export default router;
+module.exports = router;

@@ -1,8 +1,8 @@
-import { addCustomerQuery, fetchCustomerQuery, deleteCustomerQuery, updateCustomerQuery } from './customerHelpers';
+const customerQueries = require('./customerQueries');
 
-export const addCustomerController = async (req, res) => {
+module.exports.addCustomerController = async (req, res) => {
   try {
-    const data = await addCustomerQuery(req.body);
+    const data = await cusotmerQueries.addCustomerQuery(req.body);
     console.log("addCustomerController - sucessfully added data ", JSON.stringify(data.rows[0]));
     return res.status(200).send(data.rows[0]);
   } catch (err) {
@@ -11,9 +11,9 @@ export const addCustomerController = async (req, res) => {
   }
 };
 
-export const fetchCustomerController = async (req, res) => {
+module.exports.fetchCustomerController = async (req, res) => {
   try {
-    const data = await fetchCustomerQuery(req.params);
+    const data = await customerQueries.fetchCustomerQuery(req.params);
     console.log("fetchCustomerController - sucessfully retrieved data ", JSON.stringify(data.rows));
     return res.status(200).send(data.rows);
   } catch (err) {
@@ -22,9 +22,9 @@ export const fetchCustomerController = async (req, res) => {
   }
 };
 
-export const deleteCustomerController = async (req, res) => {
+module.exports.deleteCustomerController = async (req, res) => {
   try {
-    const data = await deleteCustomerQuery(req.params);
+    const data = await customerQueries.deleteCustomerQuery(req.params);
     console.log("deleteCustomerController - sucessfully retrieved data ", JSON.stringify(data.rows[0]));
     return res.status(200).send(data.rows);
   } catch (err) {
@@ -33,9 +33,9 @@ export const deleteCustomerController = async (req, res) => {
   }
 };
 
-export const updateCustomerController = async (req, res) => {
+module.exports.updateCustomerController = async (req, res) => {
   try {
-    const data = await updateCustomerQuery(req.params);
+    const data = await customerQueries.updateCustomerQuery(req.params);
     console.log("updateCustomerController - sucessfully retrieved data ", JSON.stringify(data.rows[0]));
     return res.status(200).send(data.rows);
   } catch (err) {

@@ -1,4 +1,4 @@
-import { db, Sequelize } from '../index';
+const {db, Sequelize} = require('../index');
 
 const Customers = db.define('customer', {
   name: Sequelize.STRING,
@@ -12,7 +12,7 @@ const Customers = db.define('customer', {
 });
 
 Customers.sync()
-  .then(() => console.log('Votes table created'))
+  .then(() => console.log('Customers table created'))
   .catch(err => console.error(err));
 
-export default Customers;
+module.exports = Customers;

@@ -1,5 +1,5 @@
-import Sequelize from 'sequelize';
-import Promise from 'bluebird';
+const Sequelize = require('sequelize');
+const Promise = require('bluebird');
 
 let db;
 if (process.env.DATABASE_URL) {
@@ -40,4 +40,4 @@ db
 
 Promise.promisifyAll(db);
 
-export { db, Sequelize };
+module.exports = { db, Sequelize };
