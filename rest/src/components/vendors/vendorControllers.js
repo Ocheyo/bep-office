@@ -1,9 +1,15 @@
-const vendorQueries = require('./vendorQueries');
+const {
+  addVendorQuery,
+  fetchAllVendorsQuery,
+  fetchVendorQuery,
+  deleteVendorQuery,
+  updateVendorQuery
+} = require('./vendorQueries');
 
 module.exports.addVendorController = async (req, res) => {
   console.log(req.body);
   try {
-    const data = await vendorQueries.addVendorQuery(req.body);
+    const data = await addVendorQuery(req.body);
     console.log("addVendorController - sucessfully added data ", JSON.stringify(data));
     return res.status(200).send(data);
   } catch (err) {
@@ -14,7 +20,7 @@ module.exports.addVendorController = async (req, res) => {
 
 module.exports.fetchAllVendorsController = async (req, res) => {
   try {
-    const data = await vendorQueries.fetchAllVendorsQuery();
+    const data = await fetchAllVendorsQuery();
     console.log("fetchAllVendorsController - sucessfully retrieved data ", JSON.stringify(data));
     return res.status(200).send(data);
   } catch (err) {
@@ -26,7 +32,7 @@ module.exports.fetchAllVendorsController = async (req, res) => {
 module.exports.fetchVendorController = async (req, res) => {
   console.log(req.params);
   try {
-    const data = await vendorQueries.fetchVendorQuery(req.params);
+    const data = await fetchVendorQuery(req.params);
     console.log("fetchVendorController - sucessfully retrieved data ", JSON.stringify(data));
     return res.status(200).send(data);
   } catch (err) {
@@ -37,7 +43,7 @@ module.exports.fetchVendorController = async (req, res) => {
 
 module.exports.deleteVendorController = async (req, res) => {
   try {
-    const data = await vendorQueries.deleteVendorQuery(req.params);
+    const data = await deleteVendorQuery(req.params);
     console.log("deleteVendorController - sucessfully retrieved data ", JSON.stringify(data));
     return res.status(200).send(data);
   } catch (err) {
@@ -48,7 +54,7 @@ module.exports.deleteVendorController = async (req, res) => {
 
 module.exports.updateVendorController = async (req, res) => {
   try {
-    const data = await vendorQueries.updateVendorQuery(req.params);
+    const data = await updateVendorQuery(req.params);
     console.log("updateVendorController - sucessfully retrieved data ", JSON.stringify(data));
     return res.status(200).send(data);
   } catch (err) {

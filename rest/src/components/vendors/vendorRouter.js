@@ -1,19 +1,25 @@
 const express = require('express');
-const vendorControllers = require('./vendorControllers');
+const {
+  addVendorController,
+  fetchAllVendorsController,
+  fetchVendorController,
+  deleteVendorController,
+  updateVendorController
+} = require('./vendorControllers');
 
 const router = express.Router();
 
 router.route('/')
-  .post(vendorControllers.addVendorController)
-  .get(vendorControllers.fetchAllVendorsController);
+  .post(addVendorController)
+  .get(fetchAllVendorsController);
 
 router.route('/:vendor_id')
-  .get(vendorControllers.fetchVendorController);
+  .get(fetchVendorController);
 
 router.route('/:vendor_id')
-  .delete(vendorControllers.deleteVendorController);
+  .delete(deleteVendorController);
 
 router.route('/:vendor_id')
-  .put(vendorControllers.updateVendorController);
+  .put(updateVendorController);
 
 module.exports = router;

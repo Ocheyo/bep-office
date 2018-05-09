@@ -1,19 +1,25 @@
 const express = require('express');
-const customerControllers = require('./customerControllers');
+const {
+  addCustomerController,
+  fetchAllCustomersController,
+  fetchCustomerController,
+  deleteCustomerController,
+  updateCustomerController
+} = require('./customerControllers');
 
 const router = express.Router();
 
 router.route('/')
-  .get(customerControllers.fetchAllCustomers)
-  .post(customerControllers.addCustomerController);
+  .get(fetchAllCustomersController)
+  .post(addCustomerController);
 
 router.route('/:customer_id')
-  .get(customerControllers.fetchCustomerController);
+  .get(fetchCustomerController);
 
 router.route('/:customer_id')
-  .delete(customerControllers.deleteCustomerController);
+  .delete(deleteCustomerController);
 
 router.route('/:customer_id')
-  .put(customerControllers.updateCustomerController);
+  .put(updateCustomerController);
 
 module.exports = router;

@@ -1,8 +1,14 @@
-const jobQueries = require('./jobQueries');
+const {
+  addJobQuery,
+  fetchAllJobsQuery,
+  fetchJobQuery,
+  deleteJobQuery,
+  updateJobQuery
+} = require('./jobQueries');
 
 module.exports.addJobController = async (req, res) => {
   try {
-    const data = await jobQueries.addJobQuery(req.body);
+    const data = await addJobQuery(req.body);
     console.log("addJobController - sucessfully added data ", JSON.stringify(data));
     return res.status(200).send(data);
   } catch (err) {
@@ -13,7 +19,7 @@ module.exports.addJobController = async (req, res) => {
 
 module.exports.fetchAllJobsController = async (req, res) => {
   try {
-    const data = await stockQueries.fetchAllJobsQuery();
+    const data = await fetchAllJobsQuery();
     console.log('fetchAllJobsController - successfully retrieved data ', JSON.stringify(data));
     return res.status(200).send(data);
   } catch (err) {
@@ -24,7 +30,7 @@ module.exports.fetchAllJobsController = async (req, res) => {
 
 module.exports.fetchJobController = async (req, res) => {
   try {
-    const data = await jobQueries.fetchJobQuery(req.params);
+    const data = await fetchJobQuery(req.params);
     console.log("fetchJobController - sucessfully retrieved data ", JSON.stringify(data));
     return res.status(200).send(data);
   } catch (err) {
@@ -35,7 +41,7 @@ module.exports.fetchJobController = async (req, res) => {
 
 module.exports.deleteJobController = async (req, res) => {
   try {
-    const data = await jobQueries.deleteJobQuery(req.params);
+    const data = await deleteJobQuery(req.params);
     console.log("deleteJobController - sucessfully retrieved data ", JSON.stringify(data));
     return res.status(200).send(data);
   } catch (err) {
@@ -46,7 +52,7 @@ module.exports.deleteJobController = async (req, res) => {
 
 module.exports.updateJobController = async (req, res) => {
   try {
-    const data = await jobQueries.updateJobQuery(req.params);
+    const data = await updateJobQuery(req.params);
     console.log("updateJobController - sucessfully retrieved data ", JSON.stringify(data));
     return res.status(200).send(data);
   } catch (err) {

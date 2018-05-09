@@ -1,8 +1,14 @@
-const stockQueries = require('./stockQueries');
+const {
+  addStockQuery,
+  fetchAllStockQuery,
+  fetchStockQuery,
+  deleteStockQuery,
+  updateStockQuery
+} = require('./stockQueries');
 
 module.exports.addStockController = async (req, res) => {
   try {
-    const data = await stockQueries.addStockQuery(req.body);
+    const data = await addStockQuery(req.body);
     console.log('addStockController - sucessfully added data ', JSON.stringify(data));
     return res.status(200).send(data);
   } catch (err) {
@@ -13,7 +19,7 @@ module.exports.addStockController = async (req, res) => {
 
 module.exports.fetchAllStockController = async (req, res) => {
   try {
-    const data = await stockQueries.fetchAllStockQuery();
+    const data = await fetchAllStockQuery();
     console.log('fetchAllStockController - successfully retrieved data ', JSON.stringify(data));
     return res.status(200).send(data);
   } catch (err) {
@@ -24,7 +30,7 @@ module.exports.fetchAllStockController = async (req, res) => {
 
 module.exports.fetchStockController = async (req, res) => {
   try {
-    const data = await stockQueries.fetchStockQuery(req.params);
+    const data = await fetchStockQuery(req.params);
     console.log('fetchStockController - sucessfully retrieved data ', JSON.stringify(data));
     return res.status(200).send(data);
   } catch (err) {
@@ -35,7 +41,7 @@ module.exports.fetchStockController = async (req, res) => {
 
 module.exports.deleteStockController = async (req, res) => {
   try {
-    const data = await stockQueries.deleteStockQuery(req.params);
+    const data = await deleteStockQuery(req.params);
     console.log('deleteStockController - sucessfully retrieved data ', JSON.stringify(data));
     return res.status(200).send(data);
   } catch (err) {
@@ -46,7 +52,7 @@ module.exports.deleteStockController = async (req, res) => {
 
 module.exports.updateStockController = async (req, res) => {
   try {
-    const data = await stockQueries.updateStockQuery(req.params);
+    const data = await updateStockQuery(req.params);
     console.log('updateStockController - sucessfully retrieved data ', JSON.stringify(data));
     return res.status(200).send(data);
   } catch (err) {

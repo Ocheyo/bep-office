@@ -1,19 +1,25 @@
 const express = require('express');
-const stockControllers = require('./stockControllers');
+const {
+  addStockController,
+  fetchAllStockController,
+  fetchStockController,
+  deleteStockController,
+  updateStockController
+} = require('./stockControllers');
 
 const router = express.Router();
 
 router.route("/")
-  .post(stockControllers.addStockController)
-  .get(stockControllers.fetchAllStockController);
+  .post(addStockController)
+  .get(fetchAllStockController);
 
 router.route("/:stock_id")
-  .get(stockControllers.fetchStockController);
+  .get(fetchStockController);
 
 router.route("/:stock_id")
-  .delete(stockControllers.deleteStockController);
+  .delete(deleteStockController);
 
 router.route("/:stock_id")
-  .put(stockControllers.updateStockController);
+  .put(updateStockController);
 
 module.exports = router;

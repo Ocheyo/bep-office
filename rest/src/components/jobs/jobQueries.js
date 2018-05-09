@@ -1,15 +1,25 @@
 const jobs = require('../../config/database/models/jobModel');
 
-module.exports.addJobQuery = (newJob) => {
+module.exports.addJobQuery = (
+  {
+    type,
+    cost,
+    name,
+    end,
+    extras,
+    stock_id,
+    customer_id
+  }
+) => {
   return jobs.create(
     {
-      type: newJob.type,
-      cost: newJob.cost,
-      name: newJob.name,
-      end: newJob.end,
-      extras: newJob.extras,
-      stock_id: newJob.stockId,
-      customer_id: newJob.customer_id
+      type,
+      cost,
+      name,
+      end,
+      extras,
+      stock_id,
+      customer_id
     }
   );
 }
