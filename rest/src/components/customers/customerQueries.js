@@ -1,6 +1,6 @@
 const customers = require('../../config/database/models/customerModel');
 
-module.exports.fetchAllCustomersQuery = () {
+module.exports.fetchAllCustomersQuery = () => {
   return customers.findAll();
 }
 
@@ -20,17 +20,17 @@ module.exports.addCustomerQuery = (newCustomer) => {
   );
 }
 
-module.exports.fetchCustomerQuery = (customerId) => {
-  console.log(customerId);
-  return customers.findById(customerId);
+module.exports.fetchCustomerQuery = ({customer_id}) => {
+  console.log(customer_id);
+  return customers.findById(customer_id);
 }
 
-module.exports.deleteCustomerQuery = (customerId) => {
-  console.log(customerId);
-  return customers.destroy({where: {id: customerId}});
+module.exports.deleteCustomerQuery = ({customer_id}) => {
+  console.log(customer_id);
+  return customers.destroy({where: {id: customer_id}});
 }
 
-module.exports.updateCustomerQuery = (customerId, data) => {
-  console.log(customerId, data);
+module.exports.updateCustomerQuery = ({customer_id}, data) => {
+  console.log(customer_id, data);
   return null;
 }

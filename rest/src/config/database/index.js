@@ -10,6 +10,7 @@ if (process.env.DATABASE_URL) {
     dialect: 'postgres',
     protocol: 'postgres',
     logging: false,
+    operatorsAliases: false,
 
     pool: {
       max: 5,
@@ -23,6 +24,7 @@ if (process.env.DATABASE_URL) {
     host: 'localhost',
     dialect: 'postgres',
     logging: false,
+    operatorsAliases: false,
 
     pool: {
       max: 5,

@@ -18,17 +18,17 @@ module.exports.fetchAllVendorsQuery = () => {
   return vendors.findAll();
 }
 
-module.exports.fetchVendorQuery = (vendorId) => {
-  console.log(vendorId);
-  return vendors.findById(vendorId);
+module.exports.fetchVendorQuery = ({vendor_id}) => {
+  console.log(vendor_id);
+  return vendors.findById(vendor_id);
 }
 
-module.exports.deleteVendorQuery = (vendorId) => {
-  console.log(vendorId);
-  return vendors.destroy({ where: { id: vendorId } });
+module.exports.deleteVendorQuery = ({vendor_id}) => {
+  console.log(vendor_id);
+  return vendors.destroy({ where: { id: vendor_id } });
 }
 
-module.exports.updateVendorQuery = (vendorId, data) => {
-  console.log(vendorId, data);
+module.exports.updateVendorQuery = ({vendor_id}, data) => {
+  console.log(vendor_id, data);
   return null;
 }

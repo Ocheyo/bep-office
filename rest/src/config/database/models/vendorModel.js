@@ -6,7 +6,7 @@ const Vendors = db.define('vendor', {
   phone: Sequelize.STRING,
   email: Sequelize.STRING,
   city: Sequelize.STRING,
-  state: Sequelize.FLOAT,
+  state: Sequelize.STRING,
 });
 
 Vendors.sync()

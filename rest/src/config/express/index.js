@@ -11,8 +11,8 @@ const middleWare = [
   parser.urlencoded({ extended: true }),
   cors({
     origin: '*',
-    allowedHeaders: "Content-Type, Authorization",
-    methods: ["GET, POST, PUT, DELETE", "OPTIONS"]
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS']
   })
 ];
 
