@@ -4,33 +4,41 @@ module.exports.fetchAllCustomersQuery = () => {
   return customers.findAll();
 }
 
-module.exports.addCustomerQuery = (newCustomer) => {
-  console.log(newCustomer);
+module.exports.addCustomerQuery = (
+  {
+    name,
+    phone,
+    email,
+    address,
+    city,
+    state,
+    zip,
+    contact
+  }
+) => {
   return customers.create(
     {
-      name: newCustomer.name,
-      phone: newCustomer.phone,
-      email: newCustomer.email,
-      address: newCustomer.address,
-      city: newCustomer.city,
-      state: newCustomer.state,
-      zip: newCustomer.zip,
-      contact: newCustomer.contact
+      name,
+      phone,
+      email,
+      address,
+      city,
+      state,
+      zip,
+      contact
     }
   );
 }
 
-module.exports.fetchCustomerQuery = ({customer_id}) => {
-  console.log(customer_id);
-  return customers.findById(customer_id);
+module.exports.fetchCustomerQuery = ({customerId}) => {
+  return customers.findById(customerId);
 }
 
-module.exports.deleteCustomerQuery = ({customer_id}) => {
-  console.log(customer_id);
-  return customers.destroy({where: {id: customer_id}});
+module.exports.deleteCustomerQuery = ({customerId}) => {
+  return customers.destroy({where: {id: customerId}});
 }
 
-module.exports.updateCustomerQuery = ({customer_id}, data) => {
-  console.log(customer_id, data);
+module.exports.updateCustomerQuery = ({customerId}, data) => {
+  console.log(customerId, data);
   return null;
 }

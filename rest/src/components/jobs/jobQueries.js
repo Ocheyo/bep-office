@@ -8,8 +8,8 @@ module.exports.addJobQuery = (
     name,
     end,
     extras,
-    stock_id,
-    customer_id
+    stockId,
+    customerId
   }
 ) => {
   return jobs.create(
@@ -20,8 +20,8 @@ module.exports.addJobQuery = (
       name,
       end,
       extras,
-      stock_id,
-      customer_id
+      stockId,
+      customerId
     }
   );
 }
@@ -30,17 +30,17 @@ module.exports.fetchAllJobsQuery = () => {
   return jobs.findAll();
 }
 
-module.exports.fetchJobQuery = ({job_id}) => {
+module.exports.fetchJobQuery = ({jobId}) => {
   console.log(job_id);
   return jobs.findById(job_id);
 }
 
-module.exports.deleteJobQuery = ({job_id}) => {
+module.exports.deleteJobQuery = ({jobId}) => {
   console.log(job_id);
   return jobs.destroy(job_id);;
 }
 
-module.exports.updateJobQuery = ({job_id}, data) => {
-  console.log(job_id, data);
+module.exports.updateJobQuery = ({jobId}, data) => {
+  console.log(jobId, data);
   return null;
 }
