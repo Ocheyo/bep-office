@@ -11,10 +11,21 @@ module.exports.addVendorController = async (req, res) => {
   }
 };
 
+module.exports.fetchAllVendorsController = async (req, res) => {
+  try {
+    const data = await vendorQueries.fetchAllVendorsQuery();
+    console.log("fetchAllVendorsController - sucessfully retrieved data ", JSON.stringify(data.rows));
+    return res.status(200).send(data.rows);
+  } catch (err) {
+    console.error("fetchVendorController - error= ", err);
+    return res.status(400).send(err);
+  }
+};
+
 module.exports.fetchVendorController = async (req, res) => {
   try {
     const data = await vendorQueries.fetchVendorQuery(req.params);
-    console.log("fetchVendorController - sucessfully retrieved data ", JSON.stringify(data.rows));
+    console.log("fetchVendorController - sucessfully retrieved data ", JSON.stringify(data.rows[0]));
     return res.status(200).send(data.rows);
   } catch (err) {
     console.error("fetchVendorController - error= ", err);

@@ -1,5 +1,16 @@
 const customerQueries = require('./customerQueries');
 
+module.exports.fetchAllCustomers = async (req, res) => {
+  try{
+    const data = await customerQueries.fetchAllCustomersQuery();
+    console.log('fetchAllCustomersController - successfully retreived data ', JSON.stringify(data.rows));
+    return res.status(200).send(data.rows);
+  } catch (err) {
+    console.error('fetchAllCustomersController - error=', err);
+    return res.status(400).send(err);
+  }
+};
+
 module.exports.addCustomerController = async (req, res) => {
   try {
     const data = await cusotmerQueries.addCustomerQuery(req.body);
@@ -35,7 +46,7 @@ module.exports.deleteCustomerController = async (req, res) => {
 
 module.exports.updateCustomerController = async (req, res) => {
   try {
-    const data = await customerQueries.updateCustomerQuery(req.params);
+    const data = await customerQueries.updateCustomerQuery(req.params, req.body);
     console.log("updateCustomerController - sucessfully retrieved data ", JSON.stringify(data.rows[0]));
     return res.status(200).send(data.rows);
   } catch (err) {

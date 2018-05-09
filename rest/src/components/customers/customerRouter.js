@@ -3,16 +3,17 @@ const customerControllers = require('./customerControllers');
 
 const router = express.Router();
 
-router.route("/addCustomer")
+router.route('/')
+  .get(customerControllers.fetchAllCustomers)
   .post(customerControllers.addCustomerController);
 
-router.route("/fetchCustomer/:customer_id")
+router.route('/:customer_id')
   .get(customerControllers.fetchCustomerController);
 
-router.route("/deleteCustomer/:customer_id")
+router.route('/:customer_id')
   .delete(customerControllers.deleteCustomerController);
 
-router.route("/updateCustomer/:customer_id")
+router.route('/:customer_id')
   .put(customerControllers.updateCustomerController);
 
 module.exports = router;

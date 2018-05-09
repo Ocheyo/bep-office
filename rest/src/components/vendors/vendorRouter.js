@@ -3,16 +3,17 @@ const vendorControllers = require('./vendorControllers');
 
 const router = express.Router();
 
-router.route("/addVendor")
-  .post(vendorControllers.addVendorController);
+router.route('/')
+  .post(vendorControllers.addVendorController)
+  .get(vendorControllers.fetchAllVendorsController);
 
-router.route("/fetchVendor/:vendor_id")
+router.route('/:vendor_id')
   .get(vendorControllers.fetchVendorController);
 
-router.route("/deleteVendor/:vendor_id")
+router.route('/:vendor_id')
   .delete(vendorControllers.deleteVendorController);
 
-router.route("/updateVendor/:vendor_id")
+router.route('/:vendor_id')
   .put(vendorControllers.updateVendorController);
 
 module.exports = router;
