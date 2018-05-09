@@ -7,7 +7,7 @@ const Stock = db.define('stock', {
   weight: Sequelize.INTEGER,
   texture: Sequelize.STRING,
   price: Sequelize.FLOAT,
-  vendorId: Sequelize.INTEGER
+  vendor_id: Sequelize.INTEGER
 });
 
 Stock.sync()

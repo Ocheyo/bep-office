@@ -43,7 +43,7 @@ module.exports.deleteJobController = async (req, res) => {
   try {
     const data = await deleteJobQuery(req.params);
     console.log("deleteJobController - sucessfully retrieved data ", JSON.stringify(data));
-    return res.status(200).send(data);
+    return res.sendStatus(200);
   } catch (err) {
     console.error("deleteJobController - error= ", err);
     return res.status(400).send(err);

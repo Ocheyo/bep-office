@@ -2,9 +2,8 @@ const {db, Sequelize} = require('../index');
 
 const Jobs = db.define('job', {
   name: Sequelize.STRING,
-  customerId: Sequelize.INTEGER,
-  stockId: Sequelize.INTEGER,
-  begin: Sequelize.DATE,
+  customer_id: Sequelize.INTEGER,
+  stock_id: Sequelize.INTEGER,
   end: Sequelize.DATE,
   cost: Sequelize.FLOAT,
   price: Sequelize.FLOAT,

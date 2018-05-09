@@ -4,6 +4,7 @@ module.exports.addJobQuery = (
   {
     type,
     cost,
+    price,
     name,
     end,
     extras,
@@ -15,6 +16,7 @@ module.exports.addJobQuery = (
     {
       type,
       cost,
+      price,
       name,
       end,
       extras,

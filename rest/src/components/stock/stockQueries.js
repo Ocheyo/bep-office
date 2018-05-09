@@ -1,15 +1,25 @@
 const stock = require('../../config/database/models/stockModel');
 
-module.exports.addStockQuery = (newStock) => {
+module.exports.addStockQuery = (
+  {
+    brand,
+    product,
+    color,
+    weight,
+    texture,
+    price,
+    vendor_id
+  }
+) => {
   return stock.create(
     {
-      brand: newStock.brand,
-      product: newStock.product,
-      color: newStock.color,
-      weight: newStock.weight,
-      texture: newStock.texture,
-      price: newStock.price,
-      vendor_id: newStock.vendorId
+      brand,
+      product,
+      color,
+      weight,
+      texture,
+      price,
+      vendor_id
     }
   );
 }

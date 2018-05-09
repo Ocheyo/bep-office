@@ -45,7 +45,7 @@ module.exports.deleteVendorController = async (req, res) => {
   try {
     const data = await deleteVendorQuery(req.params);
     console.log("deleteVendorController - sucessfully retrieved data ", JSON.stringify(data));
-    return res.status(200).send(data);
+    return res.sendStatus(200);
   } catch (err) {
     console.error("deleteVendorController - error= ", err);
     return res.status(400).send(err);

@@ -8,7 +8,7 @@ const {
 
 module.exports.addCustomerController = async (req, res) => {
   try {
-    const data = await cusotmerQueries.addCustomerQuery(req.body);
+    const data = await addCustomerQuery(req.body);
     console.log("addCustomerController - sucessfully added data ", JSON.stringify(data));
     return res.status(200).send(data);
   } catch (err) {
@@ -43,7 +43,7 @@ module.exports.deleteCustomerController = async (req, res) => {
   try {
     const data = await deleteCustomerQuery(req.params);
     console.log("deleteCustomerController - sucessfully retrieved data ", JSON.stringify(data));
-    return res.status(200).send(data);
+    return res.sendStatus(200);
   } catch (err) {
     console.error("deleteCustomerController - error= ", err);
     return res.status(400).send(err);
@@ -53,8 +53,8 @@ module.exports.deleteCustomerController = async (req, res) => {
 module.exports.updateCustomerController = async (req, res) => {
   try {
     const data = await updateCustomerQuery(req.params, req.body);
-    console.log("updateCustomerController - sucessfully retrieved data ", JSON.stringify(data.rows[0]));
-    return res.status(200).send(data.rows);
+    console.log("updateCustomerController - sucessfully retrieved data ", JSON.stringify(data));
+    return res.status(200).send(data);
   } catch (err) {
     console.error("updateCustomerController - error= ", err);
     return res.status(400).send(err);
