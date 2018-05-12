@@ -13,13 +13,13 @@ router.route("/")
   .post(addJobController)
   .get(fetchAllJobsController);
 
-router.route("/:job_id")
+router.route("/:jobId")
   .get(fetchJobController);
 
-router.route("/:job_id")
+router.route("/:jobId")
   .delete(deleteJobController);
 
-router.route("/:job_id")
+router.route("/:jobId")
   .put(updateJobController);
 
 module.exports = router;

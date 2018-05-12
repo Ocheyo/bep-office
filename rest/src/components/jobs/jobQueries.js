@@ -1,4 +1,6 @@
 const jobs = require('../../config/database/models/jobModel');
+const customer = require('../../config/database/models/customerModel');
+const stock = require('../../config/database/models/stockModel');
 
 module.exports.addJobQuery = (
   {
@@ -27,17 +29,19 @@ module.exports.addJobQuery = (
 }
 
 module.exports.fetchAllJobsQuery = () => {
-  return jobs.findAll();
+  return jobs.findAll({
+    include: [stock, customer]
+  });
 }
 
 module.exports.fetchJobQuery = ({jobId}) => {
-  console.log(job_id);
-  return jobs.findById(job_id);
+  return jobs.findById(jobId, {
+    include: [stock, customer]
+  });
 }
 
 module.exports.deleteJobQuery = ({jobId}) => {
-  console.log(job_id);
-  return jobs.destroy(job_id);;
+  return jobs.destroy(jobId);;
 }
 
 module.exports.updateJobQuery = ({jobId}, data) => {

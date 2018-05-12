@@ -1,4 +1,5 @@
 const stock = require('../../config/database/models/stockModel');
+const vendor = require('../../config/database/models/vendorModel')
 
 module.exports.addStockQuery = (
   {
@@ -25,11 +26,15 @@ module.exports.addStockQuery = (
 }
 
 module.exports.fetchAllStockQuery = () => {
-  return stock.findAll();
+  return stock.findAll({
+    include: [vendor]
+  });
 }
 
 module.exports.fetchStockQuery = ({stockId}) => {
-  return stock.findById(stockId);
+  return stock.findById(stockId, {
+    include: [vendor]
+  });
 }
 
 module.exports.deleteStockQuery = ({stockId}) => {

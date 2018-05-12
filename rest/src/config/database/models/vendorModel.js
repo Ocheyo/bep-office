@@ -2,7 +2,7 @@ const {db, Sequelize} = require('../index');
 
 const Vendors = db.define('vendor', {
   name: Sequelize.STRING,
-  sales_rep: Sequelize.STRING,
+  salesRep: Sequelize.STRING,
   phone: Sequelize.STRING,
   email: Sequelize.STRING,
   city: Sequelize.STRING,

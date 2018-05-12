@@ -13,13 +13,13 @@ router.route("/")
   .post(addStockController)
   .get(fetchAllStockController);
 
-router.route("/:stock_id")
+router.route("/:stockId")
   .get(fetchStockController);
 
-router.route("/:stock_id")
+router.route("/:stockId")
   .delete(deleteStockController);
 
-router.route("/:stock_id")
+router.route("/:stockId")
   .put(updateStockController);
 
 module.exports = router;

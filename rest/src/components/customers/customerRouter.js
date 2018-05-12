@@ -13,13 +13,13 @@ router.route('/')
   .get(fetchAllCustomersController)
   .post(addCustomerController);
 
-router.route('/:customer_id')
+router.route('/:customerId')
   .get(fetchCustomerController);
 
-router.route('/:customer_id')
+router.route('/:customerId')
   .delete(deleteCustomerController);
 
-router.route('/:customer_id')
+router.route('/:customerId')
   .put(updateCustomerController);
 
 module.exports = router;

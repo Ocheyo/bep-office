@@ -1,4 +1,5 @@
 const {db, Sequelize} = require('../index');
+const Vendor = require('./vendorModel');
 
 const Stock = db.define('stock', {
   brand: Sequelize.STRING,
@@ -9,6 +10,8 @@ const Stock = db.define('stock', {
   price: Sequelize.FLOAT,
   vendorId: Sequelize.INTEGER
 });
+
+Stock.belongsTo(Vendor);
 
 Stock.sync()
   .then(() => console.log('Stock table created'))

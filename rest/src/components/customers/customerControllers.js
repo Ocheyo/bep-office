@@ -30,6 +30,7 @@ module.exports.fetchAllCustomersController = async (req, res) => {
 
 module.exports.fetchCustomerController = async (req, res) => {
   try {
+    console.log('parameters', req.params)
     const data = await fetchCustomerQuery(req.params);
     console.log("fetchCustomerController - sucessfully retrieved data ", JSON.stringify(data));
     return res.status(200).send(data);

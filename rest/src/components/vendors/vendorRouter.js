@@ -13,13 +13,13 @@ router.route('/')
   .post(addVendorController)
   .get(fetchAllVendorsController);
 
-router.route('/:vendor_id')
+router.route('/:vendorId')
   .get(fetchVendorController);
 
-router.route('/:vendor_id')
+router.route('/:vendorId')
   .delete(deleteVendorController);
 
-router.route('/:vendor_id')
+router.route('/:vendorId')
   .put(updateVendorController);
 
 module.exports = router;

@@ -1,9 +1,5 @@
 const customers = require('../../config/database/models/customerModel');
 
-module.exports.fetchAllCustomersQuery = () => {
-  return customers.findAll();
-}
-
 module.exports.addCustomerQuery = (
   {
     name,
@@ -28,6 +24,10 @@ module.exports.addCustomerQuery = (
       contact
     }
   );
+}
+
+module.exports.fetchAllCustomersQuery = () => {
+  return customers.findAll();
 }
 
 module.exports.fetchCustomerQuery = ({customerId}) => {
